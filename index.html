@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt"><head><meta charset="utf-8"><title>Teste Geral · Preparação IFP 2027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#f3f7fb;--card:#fff;--tx:#14202b;--mu:#5b6b7a;--pr:#0f6caa;--bd:#cfdbe6;--ok:#1b8a4b;--okb:#e3f5ea;--er:#c0392b;--erb:#fbe6e3;--hd:#eaf3fb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e151c;--card:#16212b;--tx:#e8eef4;--mu:#93a4b4;--pr:#4aa8e6;--bd:#2b3b49;--ok:#4cc486;--okb:#12301f;--er:#ff7b6b;--erb:#3a1a17;--hd:#1b2a37;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:auto;padding:16px}
+.hero{background:linear-gradient(135deg,#0f6caa,#1b8fd1);color:#fff;border-radius:18px;padding:24px 20px;margin-bottom:14px}
+.hero small{letter-spacing:.08em;font-weight:700;opacity:.9}.hero h1{margin:4px 0 6px;font-size:28px}.hero p{margin:0}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.meta span{background:rgba(255,255,255,.2);border-radius:20px;padding:3px 12px;font-size:14px}
+.nm{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}.nm label{display:block;font-weight:700;margin-bottom:6px}
+.nm input{width:100%;box-sizing:border-box;padding:12px;border:1px solid var(--bd);border-radius:10px;font-size:16px;background:var(--bg);color:var(--tx)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 12px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.bar i{flex:1;height:8px;background:var(--hd);border-radius:8px;overflow:hidden}.bar i b{display:block;height:100%;width:0;background:var(--pr);transition:width .3s}.bar span{font-size:14px;color:var(--mu);white-space:nowrap}
+table.q{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:14px}
+table.q th{background:var(--hd);text-align:left;padding:10px 14px;font-size:15px;color:var(--pr)}table.q th em{float:right;font-style:normal;color:var(--mu);font-weight:400}
+table.q td.t{padding:12px 14px;font-weight:600;border-bottom:1px solid var(--bd)}
+table.q td.o{padding:0;border-bottom:1px solid var(--bd)}table.q tr:last-child td{border-bottom:0}
+label.a{display:flex;gap:10px;padding:11px 14px;cursor:pointer;align-items:center}label.a:hover{background:var(--hd)}
+input[type=radio]{accent-color:var(--pr);width:18px;height:18px}
+td.o.ok{background:var(--okb)}td.o.bad{background:var(--erb)}
+td.ex{padding:10px 14px;font-size:14px;color:var(--mu);background:var(--hd)}
+button,a.wa{display:inline-block;background:var(--pr);color:#fff;border:0;border-radius:12px;padding:13px 22px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none}
+button.s{background:var(--card);color:var(--pr);border:1px solid var(--pr)}a.wa{background:#1fa855;margin-top:10px}
+.ac{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}#res td,#res th{padding:6px 8px;border-bottom:1px solid var(--bd)}
+#res{display:none;background:var(--card);border:2px solid var(--pr);border-radius:16px;padding:20px;text-align:center;margin-bottom:14px}#res h2{font-size:48px;margin:0;color:var(--pr)}
+.mu{color:var(--mu);font-size:14px;text-align:center}
+</style></head><body><main>
+<div class="hero"><small>PREPARAÇÃO IFP 2027 · MATEMÁTICA</small><h1>Teste Geral</h1><p>80 questões de escolha múltipla</p><p style="margin-top:8px">Este teste mede a tua capacidade em Matemática. No final recebes a tua nota e a recomendação da matéria em que deves focar o estudo.</p><p style="margin-top:12px;font-weight:700">Hélio Paiva · CEO da FynTra Technologies</p><p style="margin-top:2px;opacity:.92;font-size:14px">Empresa de tecnologia, especialista em Análise de Dados e Fullstack · WhatsApp +258 847791199</p>
+<div class="meta"><span>Tempo: 90 min a contar desde que abres o teste</span><span>Sem calculadora</span><span>Uma só resposta certa</span></div></div>
+<div class="nm"><label for="nome">O teu nome completo</label><input id="nome" placeholder="Escreve aqui o teu nome" autocomplete="name"></div>
+<div class="bar"><i><b id="pb"></b></i><span id="tm">90:00</span><span id="pt">0 / 80</span></div>
+<div id="qs"></div>
+<div class="ac"><button id="sub">Submeter teste</button><button class="s" id="rst">Recomeçar</button></div>
+<div id="res"></div>
+<p class="mu">Por Hélio Paiva · Preparação IFP 2027</p>
+</main><script>
+const Q=[
+["Qual dos números é irracional?",["√36","0,(3)","√13","2,75"],2,"√13 não é raiz exacta; os outros são racionais."],
+["Qual das afirmações é verdadeira?",["ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ","ℚ ⊂ ℤ","√16 ∉ ℚ","−3 ∈ ℕ"],0,"Cada conjunto está dentro do seguinte."],
+["A fracção geratriz de 0,(45) é:",["45/100","5/11","9/20","4/9"],1,"45/99 = 5/11."],
+["A fracção geratriz de 1,(6) é:",["16/10","8/5","5/3","16/9"],2,"1 + 6/9 = 1 + 2/3 = 5/3."],
+["Qual dos números é primo?",["91","87","93","97"],3,"91 = 7×13; 87 = 3×29; 93 = 3×31."],
+["Quantos números primos há entre 20 e 50?",["6","7","8","9"],1,"23, 29, 31, 37, 41, 43, 47."],
+["A decomposição de 504 em factores primos é:",["2³×3²×7","2²×3²×7²","2³×3×7²","2×3³×7"],0,"504 = 8 × 63 = 2³ × 3² × 7."],
+["O m.d.c. e o m.m.c. de 84 e 126 são, respectivamente:",["21 e 504","42 e 504","42 e 252","14 e 252"],2,"84 = 2²×3×7 e 126 = 2×3²×7."],
+["Quanto é 2/3 + 3/4 − 1/6?",["5/4","4/3","11/12","3/2"],0,"8/12 + 9/12 − 2/12 = 15/12 = 5/4."],
+["Quanto é 2 1/3 × 1 4/5?",["3 1/5","4 1/5","21/10","4 3/5"],1,"7/3 × 9/5 = 63/15 = 21/5 = 4 1/5."],
+["Quanto é 5/8 ÷ 15/16?",["3/4","2/3","75/128","1/2"],1,"5/8 × 16/15 = 80/120 = 2/3."],
+["Qual é a maior das fracções 5/7, 7/10, 3/4 e 2/3?",["5/7","7/10","3/4","2/3"],2,"Em decimal: 0,714; 0,7; 0,75; 0,667."],
+["O valor da fracção composta (2/3)/(4/9) é:",["3/2","8/27","2/3","6/5"],0,"2/3 × 9/4 = 18/12 = 3/2."],
+["Num salário de 12 000 MT, 1/3 vai para a renda e 1/4 para a comida. Quanto sobra?",["4 000 MT","5 000 MT","7 000 MT","6 500 MT"],1,"Gasta 7/12; sobram 5/12 de 12 000 = 5 000."],
+["O decimal 0,0625, em fracção irredutível, é:",["1/16","1/8","5/80","1/160"],0,"625/10 000 = 1/16."],
+["A fracção 7/16 escrita em decimal é:",["0,3125","0,875","0,4375","0,716"],2,"7 ÷ 16 = 0,4375."],
+["A razão de 45 minutos para 2 horas, na forma irredutível, é:",["3/4","3/8","9/16","1/3"],1,"45/120 = 3/8."],
+["Se x/18 = 14/21, então x é:",["9","15","12","10"],2,"14/21 = 2/3 e 2/3 de 18 = 12."],
+["Dividindo 840 em partes directamente proporcionais a 2, 3 e 5, a maior parte é:",["336","420","504","252"],1,"840 ÷ 10 = 84 e 5 × 84 = 420."],
+["Num mapa de escala 1 : 250 000, a distância de 6,4 cm corresponde na realidade a:",["1,6 km","160 km","16 km","6,4 km"],2,"6,4 × 250 000 = 1 600 000 cm = 16 km."],
+["Cinco operários fazem uma obra em 12 dias. Quantos dias levam 8 operários?",["7,5","8","19,2","9"],0,"5 × 12 = 60 e 60 ÷ 8 = 7,5."],
+["Três torneiras enchem um tanque em 8 horas. Quanto tempo levam duas torneiras?",["5 h","16 h","10 h","12 h"],3,"3 × 8 = 24 e 24 ÷ 2 = 12."],
+["Um artigo de 2 500 MT sofreu aumento de 12% e depois desconto de 10%. Preço final:",["2 500 MT","2 520 MT","2 800 MT","2 550 MT"],1,"2 500 × 1,12 = 2 800 e 2 800 × 0,9 = 2 520."],
+["35% de um número é 84. Qual é o número?",["294","29,4","240","200"],2,"84 × 100 ÷ 35 = 240."],
+["O valor de (2/3)⁻³ é:",["8/27","27/8","−8/27","−27/8"],1,"Inverte-se a base: (3/2)³ = 27/8."],
+["O valor de (2⁵ × 4²)/8³ é:",["2","1/2","1","4"],2,"2⁵ × 2⁴ / 2⁹ = 2⁹/2⁹ = 1."],
+["O valor de −3² + (−2)³ é:",["−1","17","−17","1"],2,"−9 + (−8) = −17."],
+["O valor de x em 3^(x+1) = 243 é:",["3","5","4","6"],2,"243 = 3⁵, logo x + 1 = 5."],
+["Desenvolvendo (2x − 3)² obtém-se:",["4x² − 9","4x² − 12x + 9","4x² + 12x + 9","2x² − 12x + 9"],1,"(2x)² − 2·2x·3 + 3²."],
+["Factorizando 25x² − 30x + 9 obtém-se:",["(5x + 3)²","(5x − 3)(5x + 3)","(5x − 3)²","(25x − 3)(x − 3)"],2,"(5x)² − 2·5x·3 + 3²."],
+["O valor de 497 × 503, sem calculadora, é:",["250 009","249 991","250 000","249 009"],1,"(500 − 3)(500 + 3) = 250 000 − 9."],
+["Se x + y = 15 e x² − y² = 75, então x − y é:",["3","5","10","15"],1,"x² − y² = (x + y)(x − y), logo 75 ÷ 15 = 5."],
+["O valor de √75 + √12 − √27 é:",["6√3","4√3","10√3","√60"],1,"5√3 + 2√3 − 3√3 = 4√3."],
+["Racionalizando 6/(√5 − √2) obtém-se:",["√5 + √2","2√5 − 2√2","2√5 + 2√2","6√5 − 6√2"],2,"6(√5 + √2)/(5 − 2) = 2(√5 + √2)."],
+["A solução de √(3x + 1) = 5 é:",["7","8","9","26/3"],1,"3x + 1 = 25, logo x = 8."],
+["O número ∛100 está entre:",["3 e 4","5 e 6","4 e 5","9 e 10"],2,"4³ = 64 e 5³ = 125."],
+["ℤ ∩ [−3, 2[ é igual a:",["{−3, −2, −1, 0, 1, 2}","{−3, −2, −1, 0, 1}","{−2, −1, 0, 1}","{−2, −1, 0, 1, 2}"],1,"O 2 fica de fora (intervalo aberto)."],
+["Sendo A = [−2, 4] e B = ]1, 7[, A ∩ B é:",["]1, 4]","[−2, 7[","]1, 4[","[1, 4]"],0,"O 1 não está em B e o 4 está em A."],
+["O complementar de [−1, 3[ em ℝ é:",["]−∞, −1] ∪ ]3, +∞[","]−∞, −1[ ∪ [3, +∞[","]−1, 3[","[−1, 3["],1,"Sai o −1 (pertencia) e entra o 3 (não pertencia)."],
+["O conjunto-solução de −2x + 5 ≥ 11 é:",["[−3, +∞[","]−∞, 3]","]−∞, −3]","]−∞, −3["],2,"−2x ≥ 6 ⇒ x ≤ −3 (inverte-se o sentido)."]
+];
+const Q2=[
+["Qual é o termo geral da sucessão 5, 9, 13, 17, …?",["5n","4n + 5","4n + 1","n + 4"],2,"r = 4, logo uₙ = 4n + (5 − 4) = 4n + 1.",7],
+["Qual é o termo geral da sucessão 2, 5, 10, 17, …?",["n² + 1","2n + 1","n² + 2","3n − 1"],0,"São os quadrados 1, 4, 9, 16 mais 1.",7],
+["O 5.º termo de uₙ = (n² − 1)/(n + 1) é:",["3","4","5","24"],1,"uₙ = n − 1, logo u₅ = 4.",7],
+["O termo de ordem 10 de uₙ = (3n + 1)/(n + 2) é:",["29/12","31/12","10/3","13/4"],1,"(30 + 1)/(10 + 2) = 31/12.",7],
+["Seja u₁ = 4 e uₙ₊₁ = 2uₙ − 3. O 4.º termo é:",["8","9","11","13"],2,"4 → 5 → 7 → 11.",7],
+["Qual dos números é termo de uₙ = 4n − 3?",["50","41","42","46"],1,"4n − 3 = 41 ⇒ n = 11.",7],
+["A sucessão uₙ = (n + 3)/(n + 1) é:",["crescente","decrescente","constante","não monótona"],1,"uₙ = 1 + 2/(n + 1), que diminui.",7],
+["A sucessão uₙ = 3 − (−1)ⁿ (4, 2, 4, 2, …) é:",["crescente","decrescente","não monótona","constante"],2,"Sobe e desce alternadamente.",7],
+["O ínfimo de uₙ = (n² + 1)/(n² + 2) é:",["0","1/2","2/3","1"],2,"uₙ = 1 − 1/(n² + 2) cresce, e u₁ = 2/3 é o mínimo.",7],
+["lim (6n² + n)/(3n² − 5) é:",["2","6","1/2","+∞"],0,"Mesmo grau: 6/3 = 2.",7],
+["lim (2n² + 1)/(n + 3) é:",["2","0","+∞","−∞"],2,"O grau do numerador é maior.",7],
+["lim (3n + 1)/(2n + 4) é:",["2/3","3/2","1/4","3"],1,"Mesmo grau: 3/2.",7],
+["Qual das sucessões é um infinitésimo?",["(3n + 1)/n","(−1)ⁿ","5/n²","2n/(n + 1)"],2,"5/n² tende para 0.",7],
+["A partir de que ordem todos os termos de 1/n são menores que 0,004?",["250","251","249","400"],1,"1/n < 0,004 ⇒ n > 250.",7],
+["Seja u₁ = 1, u₂ = 3 e uₙ₊₂ = uₙ₊₁ + 2uₙ. O 5.º termo é:",["19","21","16","23"],1,"1, 3, 5, 11, 21.",7],
+["Seja uₙ = an + b com u₃ = 10 e u₇ = 22. Então u₂₀ é:",["60","63","61","64"],2,"a = 3 e b = 1; u₂₀ = 61.",7],
+["Qual das sucessões tende para +∞?",["−n²","(−1)ⁿ · n","n² − 10n","1 − n"],2,"n² cresce mais depressa que 10n.",7],
+["Qual das afirmações é verdadeira?",["Toda a sucessão monótona é limitada","Toda a sucessão limitada é monótona","Todo o infinitésimo é uma sucessão limitada","Toda a sucessão com limite 1 é crescente"],2,"Uma sucessão que tende para 0 fica presa entre dois números.",7],
+["Para uₙ = 2 + (−1)ⁿ/n, o máximo e o mínimo são:",["3 e 1","2,5 e 1","2,5 e 2","2 e 1"],1,"Termos: 1; 2,5; 1,67; 2,25; … O máximo é u₂ e o mínimo é u₁.",7],
+["Quantos termos negativos tem uₙ = n² − 10n + 9?",["6","7","8","9"],1,"(n − 1)(n − 9) < 0 ⇒ n = 2, …, 8.",7],
+["A fracção geratriz de 2,(18) é:",["218/99","24/11","218/100","22/9"],1,"2 + 18/99 = 2 + 2/11 = 24/11.",1],
+["Qual dos números é divisível por 6?",["2 134","3 021","1 458","1 235"],2,"1 458 é par e a soma dos algarismos (18) é múltiplo de 3.",1],
+["O m.d.c. de 48, 72 e 120 é:",["12","24","8","48"],1,"48 = 2⁴×3, 72 = 2³×3², 120 = 2³×3×5.",1],
+["Quanto é 3 1/4 − 1 5/6?",["2 1/12","1 7/12","1 5/12","1 1/6"],2,"39/12 − 22/12 = 17/12 = 1 5/12.",2],
+["Os 3/7 de 84 são:",["28","36","42","12"],1,"84 ÷ 7 = 12 e 12 × 3 = 36.",2],
+["Um aluno leu 2/5 de um livro e depois 1/3 do que faltava. Que fracção do livro leu no total?",["11/15","3/5","2/3","1/2"],1,"2/5 + (3/5)(1/3) = 2/5 + 1/5 = 3/5.",2],
+["A razão de 1,5 m para 60 cm, na forma irredutível, é:",["2/5","5/2","25","1/25"],1,"150/60 = 5/2.",3],
+["Seis máquinas fizeram 960 peças em 8 horas. Quantas peças fazem 9 máquinas em 5 horas?",["1 080","900","1 280","720"],1,"960 ÷ 48 = 20 peças por máquina e hora; 9 × 5 × 20 = 900.",3],
+["Depois de um desconto de 15%, um artigo custa 1 700 MT. Qual era o preço original?",["1 955 MT","2 000 MT","2 125 MT","1 445 MT"],1,"1 700 ÷ 0,85 = 2 000.",3],
+["Se x/4 = (x + 6)/10, então x é:",["2","4","6","3"],1,"10x = 4x + 24 ⇒ x = 4.",3],
+["O valor de x em 2ˣ · 2ˣ⁺¹ = 32 é:",["1","3","2","4"],2,"2²ˣ⁺¹ = 2⁵ ⇒ x = 2.",4],
+["Simplificando x⁵ · x⁻² / x² obtém-se:",["x²","x⁹","x","x⁻¹"],2,"x⁵⁻²⁻² = x¹.",4],
+["Desenvolvendo (x + 4)² − (x − 4)² obtém-se:",["32","8x","16x","16"],2,"(x² + 8x + 16) − (x² − 8x + 16) = 16x.",4],
+["O valor de 27^(2/3) é:",["6","9","18","3"],1,"(∛27)² = 3² = 9.",4],
+["O valor de √2 × √18 é:",["√20","36","6","12"],2,"√36 = 6.",5],
+["Racionalizando 12/√3 obtém-se:",["12√3","4","4√3","6"],2,"12√3/3 = 4√3.",5],
+["Num triângulo rectângulo, os catetos medem 9 cm e 12 cm. A hipotenusa mede:",["13 cm","14 cm","15 cm","21 cm"],2,"√(81 + 144) = √225 = 15.",5],
+["O conjunto {x ∈ ℕ : 2 < x ≤ 6}, por extensão, é:",["{2, 3, 4, 5, 6}","{3, 4, 5, 6}","{3, 4, 5}","{2, 3, 4, 5}"],1,"O 2 fica de fora e o 6 entra.",6],
+["Numa turma de 40 alunos, 22 gostam de Matemática, 25 de Português e 10 de ambas. Quantos não gostam de nenhuma?",["5","3","8","18"],1,"22 + 25 − 10 = 37 e 40 − 37 = 3.",6],
+["Quantos subconjuntos tem {a, b, c, d, e, f}?",["12","32","64","36"],2,"2⁶ = 64.",6]
+];
+Q.forEach((q,i)=>q.push(i<8?1:i<16?2:i<24?3:i<32?4:i<36?5:6));
+Q2.forEach(q=>Q.push(q));
+Q.sort((a,b)=>a[4]-b[4]);
+const L="ABCD",N=Q.length,qs=document.getElementById("qs"),A=Array(N).fill(-1);
+const au=i=>i<8?1:i<16?2:i<24?3:i<32?4:i<36?5:6;
+Q.forEach((q,i)=>{let r=`<table class="q"><tr><th>${i+1}</th></tr><tr><td class="t">${q[0]}</td></tr>`;
+q[1].forEach((o,j)=>r+=`<tr><td class="o" id="o${i}_${j}"><label class="a"><input type="radio" name="q${i}" value="${j}"><span><b>${L[j]}.</b> ${o}</span></label></td></tr>`);
+qs.insertAdjacentHTML("beforeend",r+`<tr id="e${i}" hidden><td class="ex"></td></tr></table>`)});
+function prog(){const n=A.filter(x=>x>=0).length;pb.style.width=n/N*100+"%";pt.textContent=n+" / "+N}
+qs.addEventListener("change",e=>{A[+e.target.name.slice(1)]=+e.target.value;prog()});
+let done=false,rem=5400;const fmt=t=>String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");const tid=setInterval(()=>{rem--;tm.textContent=fmt(Math.max(rem,0));if(rem<=300)tm.style.color="var(--er)";if(rem<=0){alert("O tempo terminou! O teste será submetido.");fin(true)}},1000);
+function fin(auto){if(done)return;
+const nome=document.getElementById("nome").value.trim();
+if(!nome&&!auto){alert("Escreve primeiro o teu nome.");document.getElementById("nome").focus();return}
+const f=A.filter(x=>x<0).length;
+if(f&&!auto&&!confirm("Ainda tens "+f+" questões por responder. Submeter mesmo assim?"))return;
+done=true;clearInterval(tid);let s=0;
+Q.forEach((q,i)=>{document.querySelectorAll(`input[name=q${i}]`).forEach(x=>x.disabled=true);
+document.getElementById(`o${i}_${q[2]}`).classList.add("ok");
+if(A[i]===q[2])s++;else if(A[i]>=0)document.getElementById(`o${i}_${A[i]}`).classList.add("bad");
+const e=document.getElementById("e"+i);e.hidden=false;e.firstChild.innerHTML=`<b>Resposta: ${L[q[2]]}.</b> ${q[3]}`});
+const p=(s/N*20).toFixed(1);const T=["","Números e números primos","Fracções","Razões, proporções e percentagem","Potências e casos notáveis","Radiciação","Conjuntos e intervalos","Sucessões"],ct=Array(8).fill(0),ok=Array(8).fill(0);Q.forEach((q,i)=>{ct[q[4]]++;if(A[i]===q[2])ok[q[4]]++});const rk=[1,2,3,4,5,6,7].map(k=>({k,pc:Math.round(ok[k]/ct[k]*100)})).sort((a,b)=>a.pc-b.pc);const fr=rk.filter(x=>x.pc<70).slice(0,3);const rec=fr.length?"Deves focar-te em: "+fr.map(x=>T[x.k]+" ("+x.pc+"%)").join("; ")+".":"Excelente nível em todas as matérias. Continua a treinar com exercícios difíceis para manteres o ritmo.";const tb=rk.slice().sort((a,b)=>a.k-b.k).map(x=>"<tr><td>"+T[x.k]+"</td><td>"+ok[x.k]+"/"+ct[x.k]+"</td><td>"+x.pc+"%</td></tr>").join("");
+const msg=`*Teste Geral IFP 2027*\nNome: ${nome||"Sem nome"}\nNota: ${s}/${N} (${p} valores)\nTempo: ${fmt(5400-Math.max(rem,0))}\nMatérias a reforçar: ${fr.length?fr.map(x=>T[x.k]+" "+x.pc+"%").join("; "):"nenhuma"}\nRespostas:\n`+A.map((a,i)=>`${i+1}-${a<0?"–":L[a]}`).join(", ");
+res.style.display="block";
+res.innerHTML=`<h2>${s} / ${N}</h2><p><b>${p} valores em 20</b> · ${s/N>=.85?"Excelente!":s/N>=.6?"Bom trabalho, revê os erros.":"Continua a treinar e revê as aulas."}</p><h3>Desempenho por matéria</h3><table style="width:100%;border-collapse:collapse;text-align:left"><tr><th>Matéria</th><th>Certas</th><th>%</th></tr>${tb}</table><p style="background:var(--hd);border-radius:10px;padding:10px;text-align:left"><b>Recomendação:</b> ${rec}</p><p>Envia agora o teu resultado e as tuas respostas:</p><a class="wa" target="_blank" rel="noopener" href="https://wa.me/258847791199?text=${encodeURIComponent(msg)}">Enviar para o WhatsApp</a>`;
+res.scrollIntoView({behavior:"smooth"})}
+sub.onclick=()=>fin(false);
+rst.onclick=()=>location.reload();
+</script></body></html>
